@@ -1,0 +1,45 @@
+name: publish.yml
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: deployment
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: actions/setup-python@v5.6.0
+        with:
+          check-latest: 'true'
+          cache: "pip"
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4.2.3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip
+          restore-keys: |
+            ${{ runner.os }}-pip
+
+      - name: Dependency installation
+        run: |
+          set -e
+          python3 -m venv .venv
+          source .venv/bin/activate
+          python3 -m pip install --upgrade pip
+          python3 -m pip install build twine
+
+      - name: Build package
+        run: |
+          set -e
+          source .venv/bin/activate
+          python3 -m build
+
+      - name: Upload package
+        env:
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          set -e
+          source .venv/bin/activate
+          python3 -m twine upload dist/*
