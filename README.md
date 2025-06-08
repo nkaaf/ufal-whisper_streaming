@@ -3,6 +3,11 @@
 Providing easy-to-use and extensible STT (Speech-To-Text) implementation with Whisper-like ASR (
 Automatic Speech Recognition) models.
 
+> [!WARNING]  
+> This project is currently in Alpha State. It is probably not stable over a long time and can have
+> unexpected errors. You could help to push this project out of Alpha and Beta state by testing and
+> reviewing it. Thanks!
+
 ## Index
 
 * [Appreciation](#appreciation)
