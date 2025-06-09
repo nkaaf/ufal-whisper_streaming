@@ -12,11 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
 
+      - name: Update apt cache
+        if: env.ACT == 'true' # local runner 'act' requires this
+        run: apt-get update
+
       - uses: actions/setup-python@v5.6.0
         with:
           python-version: ${{ matrix.python-version }}
           check-latest: "true"
           cache: "pip"
+
+      - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
+        if: env.ACT == 'true' # local runner 'act' requires this
+        with:
+          packages: cmake cmake-data
+          version: 1.0
 
       - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
         with:
@@ -28,14 +38,6 @@ jobs:
         with:
           packages: libboost-program-options-dev libboost-thread-dev libglib2.0-dev libre2-dev pybind11-dev
           version: 1.0
-
-      - name: Cache pip dependencies
-        uses: actions/cache@v4.2.3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip
-          restore-keys: |
-            ${{ runner.os }}-pip
 
       - name: Dependency Installation
         run: |
