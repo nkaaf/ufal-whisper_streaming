@@ -24,7 +24,7 @@ jobs:
           version: 1.0
 
       - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
-        if: matrix.python-version == 3.13 # opus-fast-mosestokenizer does not have python 3.13 builds
+        if: matrix.python-version == '3.13' # opus-fast-mosestokenizer does not have python 3.13 builds
         with:
           packages: libboost-program-options-dev libboost-thread-dev
           version: 1.0
