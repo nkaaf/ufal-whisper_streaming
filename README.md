@@ -1,5 +1,7 @@
 # whisper-streaming
 
+[![audit.yml](https://github.com/nkaaf/ufal-whisper_streaming/actions/workflows/audit.yml/badge.svg)](https://github.com/nkaaf/ufal-whisper_streaming/actions/workflows/audit.yml)
+
 Providing easy-to-use and extensible STT (Speech-To-Text) implementation with Whisper-like ASR (
 Automatic Speech Recognition) models.
 

@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ "3.9", "3.10", "3.11", "3.12", "3.13" ]
+        python-version: [ "3.9", "3.10", "3.11", "3.12" ]
     steps:
       - uses: actions/checkout@v4.2.2
 
-      - name: Update apt cache
+      - name: ACT | Update apt cache
         if: env.ACT == 'true' # local runner 'act' requires this
         run: apt-get update
 
@@ -23,20 +23,8 @@ jobs:
           cache: "pip"
 
       - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
-        if: env.ACT == 'true' # local runner 'act' requires this
         with:
-          packages: cmake cmake-data
-          version: 1.0
-
-      - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
-        with:
-          packages: libasound2-dev
-          version: 1.0
-
-      - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
-        if: matrix.python-version == '3.13' # opus-fast-mosestokenizer does not have python 3.13 builds
-        with:
-          packages: libboost-program-options-dev libboost-thread-dev libglib2.0-dev libre2-dev pybind11-dev
+          packages: libasound2-dev # https://github.com/nkaaf/ufal-whisper_streaming/discussions/1#discussion-8385902
           version: 1.0
 
       - name: Dependency Installation
@@ -54,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ "3.9", "3.10", "3.11", "3.12", "3.13" ]
+        python-version: [ "3.9", "3.10", "3.11", "3.12" ]
     steps:
       - uses: actions/checkout@v4.2.2
 

@@ -2,26 +2,25 @@ name: publish.yml
 on:
   workflow_dispatch:
 
-#jobs:
-#  publish:
-#    runs-on: ubuntu-latest
-#    environment: deployment
-#    steps:
-#      - uses: actions/checkout@v4.2.2
-#
-#      - uses: actions/setup-python@v5.6.0
-#        with:
-#          check-latest: 'true'
-#          cache: "pip"
-#
-#      - name: Dependency installation
-#        run: python3 -m pip install build twine
-#
-#      - name: Build package
-#        run: python3 -m build
-#
-#      - name: Upload package
-#        env:
-#          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
-#        run: python3 -m twine upload dist/*
-#
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: deployment
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - uses: actions/setup-python@v5.6.0
+        with:
+          check-latest: 'true'
+          cache: "pip"
+
+      - name: Dependency installation
+        run: python3 -m pip install build twine
+
+      - name: Build package
+        run: python3 -m build
+
+      - name: Upload package
+        env:
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: python3 -m twine upload dist/*
