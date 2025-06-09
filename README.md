@@ -15,6 +15,7 @@ Automatic Speech Recognition) models.
     * [Backend](#backend)
     * [Receiver](#receiver)
     * [Sender](#sender)
+* [Installation](#installation)
 * [Development](#development)
     * [Installation of Prerequisites](#installation-of-prerequisites)
     * [Build executables](#build-executables)
@@ -81,6 +82,18 @@ Currently following backends are implemented:
 
 * Print - Simple console output via "print"
 * WebSocket (Client) - Output via network protocol
+
+## Installation
+
+This library can be easily installed with pip:
+
+```bash
+pip install whisper-streaming
+```
+
+The integration of different backends are installed via following extras:
+* [all] - installs all backends
+* [faster-whisper] - [Faster-Whisper](https://github.com/SYSTRAN/faster-whisper)
 
 ## Development
 
