@@ -26,7 +26,7 @@ jobs:
       - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
         if: matrix.python-version == '3.13' # opus-fast-mosestokenizer does not have python 3.13 builds
         with:
-          packages: libboost-program-options-dev libboost-thread-dev
+          packages: libboost-program-options-dev libboost-thread-dev libglib2.0-dev libre2-dev
           version: 1.0
 
       - name: Cache pip dependencies
@@ -40,9 +40,6 @@ jobs:
       - name: Dependency Installation
         run: |
           set -e
-          python3 -m venv .venv
-          source .venv/bin/activate
-          python3 -m pip install --upgrade pip
           python3 -m pip install .[all]
           python3 -m pip install -r requirements/dev/requirements.txt
 
