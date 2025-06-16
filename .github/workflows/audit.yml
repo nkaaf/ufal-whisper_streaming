@@ -16,16 +16,16 @@ jobs:
         if: env.ACT == 'true' # local runner 'act' requires this
         run: apt-get update
 
+      - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
+        with:
+          packages: libasound2-dev # https://github.com/nkaaf/ufal-whisper_streaming/discussions/1#discussion-8385902
+          version: 1.0
+
       - uses: actions/setup-python@v5.6.0
         with:
           python-version: ${{ matrix.python-version }}
           check-latest: "true"
           cache: "pip"
-
-      - uses: awalsh128/cache-apt-pkgs-action@v1.4.3
-        with:
-          packages: libasound2-dev # https://github.com/nkaaf/ufal-whisper_streaming/discussions/1#discussion-8385902
-          version: 1.0
 
       - name: Dependency Installation
         run: |
