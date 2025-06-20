@@ -4,7 +4,7 @@ updates:
     directory: "/requirements/library"
     schedule:
       interval: "daily"
-    versioning-strategy: widen
+    versioning-strategy: increase-if-necessary
   - package-ecosystem: "pip"
     directory: "/requirements/dev"
     schedule:

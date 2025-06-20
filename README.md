@@ -73,14 +73,14 @@ Currently following backends are implemented:
 
 ### Receiver
 
-"Receiver" are mechanisms to input data into the ASR model. Out-of-the-box support for:
+"Receiver" are mechanisms to input data into the ASR system. Out-of-the-box support for:
 
 * ALSA (Advanced Linux Sound Architecture)
 * File - Audio file
 
 ### Sender
 
-"Sender" are mechanisms to output data out of the ASR mode. Out-of-the-box support for:
+"Sender" are mechanisms to output data out of the ASR system. Out-of-the-box support for:
 
 * Print - Simple console output via "print"
 * WebSocket (Client) - Output via network protocol
