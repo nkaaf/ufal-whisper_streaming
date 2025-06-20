@@ -1,6 +1,8 @@
 # whisper-streaming
 
 [![audit.yml](https://github.com/nkaaf/ufal-whisper_streaming/actions/workflows/audit.yml/badge.svg)](https://github.com/nkaaf/ufal-whisper_streaming/actions/workflows/audit.yml)
+[![license](https://badgen.net/github/license/nkaaf/ufal-whisper_streaming/)](https://www.apache.org/licenses/LICENSE-2.0)
+[![python](https://badgen.net/pypi/python/whisper-streaming/)](https://pypi.org/project/pyds-stubs)
 
 Providing easy-to-use and extensible STT (Speech-To-Text) implementation with Whisper-like ASR (
 Automatic Speech Recognition) models.
