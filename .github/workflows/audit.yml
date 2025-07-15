@@ -33,7 +33,7 @@ jobs:
           python3 -m pip install .[all]
           python3 -m pip install -r requirements/dev/requirements.txt
 
-      - uses: astral-sh/ruff-action@v3.4.0
+      - uses: astral-sh/ruff-action@v3.5.0
         with:
           version-file: "requirements/dev/requirements.txt"
           src: "./src"
