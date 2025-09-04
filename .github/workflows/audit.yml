@@ -21,7 +21,7 @@ jobs:
           packages: libasound2-dev # https://github.com/nkaaf/ufal-whisper_streaming/discussions/1#discussion-8385902
           version: 1.0
 
-      - uses: actions/setup-python@v5.6.0
+      - uses: actions/setup-python@v6.0.0
         with:
           python-version: ${{ matrix.python-version }}
           check-latest: "true"
@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
 
-      - uses: actions/setup-python@v5.6.0
+      - uses: actions/setup-python@v6.0.0
         with:
           python-version: ${{ matrix.python-version }}
           check-latest: "true"
